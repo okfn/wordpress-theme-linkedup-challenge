@@ -1,4 +1,4 @@
-WP BOOTSTRAP ONE PAGE
-=====================
+LinkedUp Challenge Wordpress Theme
+==================================
 
-A single page, Bootstrap based theme. Built upon https://github.com/320press/wordpress-bootstrap
+A single page theme, based on https://github.com/mintcanary/wpbsone
