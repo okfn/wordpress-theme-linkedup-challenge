@@ -57,6 +57,9 @@ a:focus,
   margin: 40px 0 0 0;
   padding-bottom: 0;
 }
+.page-header .page-title {
+  display:none;
+}
 
 .page .video {
   position: relative;
