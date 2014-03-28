@@ -1,44 +1,43 @@
+<?php
+/*
+Template Name: Left Nav
+*/
+?>
+
 <?php get_header(); ?>
-    <div class="top-nav-layout">
-    <header role="banner">
-				
-			<div class="navbar navbar-default">
-				<div class="container">
-          
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-
-						<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-					</div>
-
-					<div class="collapse navbar-collapse navbar-responsive-collapse main-nav">
-						<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-            
-
-						<!--
-						<?php //if(of_get_option('search_bar', '1')) {?>
-						<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-							<div class="form-group">
-								<input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php _e('Search','wpbootstrap'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-							</div>
-						</form>
-						<?php //} ?>
-					</div>
-          -->
-
-				</div> <!-- end .container -->
-			</div> <!-- end .navbar -->
-		
-		</header> <!-- end header -->
+<div class="left-nav-layout">    
 		<div class="container">
 			
 			<div id="content" class="clearfix row">
+      
+        <div class="left-nav main-nav panel panel-default col-sm-3" data-spy="affix">
+            <div class="panel-heading">
+          <?php if ( get_theme_mod( 'wpbsone_logo' ) ) : ?>
+              <div class="site-logo">
+                  <a href='<?php echo home_url(); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'wpbsone_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+              </div>
+          <?php else : ?>
+              <h1 class='site-title'><a href='<?php echo home_url(); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><?php bloginfo( 'name' ); ?></a></h1>
+              <?php //bloginfo( 'description' ); ?>
+          <?php endif; ?>
+          </div>
+  <div class="panel-body">
+          <?php  wp_nav_menu( 
+						array( 
+							'menu' => 'main_nav', /* menu name */
+							'menu_class' => 'nav nav-stacked',
+							'theme_location' => 'main_nav', /* where in the theme it's assigned */
+							'container' => 'false', /* container class */
+							'fallback_cb' => 'wp_bootstrap_main_nav_fallback', /* menu fallback */
+							// 'depth' => '2',  suppress lower levels for now 
+							'walker' => new Bootstrap_walker()
+						)
+					); ?>
+
+          </div>
+        </div>
 			
-				<div id="main" class="col-sm-12 clearfix" role="main">
+				<div id="main" class="col-sm-8 col-sm-offset-4 clearfix" role="main">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
@@ -94,11 +93,11 @@
   
     <div id="inner-footer" class="clearfix">
       <div id="widget-footer" class="clearfix row">
+        <div class="col-sm-4">
+        </div>
         <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
         <?php endif; ?>
         <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
-        <?php endif; ?>
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
         <?php endif; ?>
       </div>
       
