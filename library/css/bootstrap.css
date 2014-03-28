@@ -6858,7 +6858,6 @@ body {
 .left-nav-layout .main-nav.col-sm-3 {
   padding: 0;
   margin: 15px;
-  position: fixed;
 }
 .left-nav-layout .panel .panel-body {
   padding-left: 0;
@@ -6879,6 +6878,7 @@ body {
     margin-left: 0;
     margin-right: 0;
     max-width: 350px;
+    position: fixed;
   }
 }
 @media (max-width: 768px) {
