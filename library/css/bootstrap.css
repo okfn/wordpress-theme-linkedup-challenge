@@ -6858,6 +6858,7 @@ body {
 .left-nav-layout .main-nav.col-sm-3 {
   padding: 0;
   margin: 15px;
+  position: fixed;
 }
 .left-nav-layout .panel .panel-body {
   padding-left: 0;

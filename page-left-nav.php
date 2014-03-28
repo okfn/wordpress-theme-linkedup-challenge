@@ -10,7 +10,7 @@ Template Name: Home - Left Nav
    <div class="container">
       <div class="clearfix row">
         
-          <div class="left-nav main-nav panel panel-default col-sm-3" data-spy="affix">
+          <div class="left-nav main-nav panel panel-default col-sm-3">
             <div class="panel-heading">
           <?php if ( get_theme_mod( 'wpbsone_logo' ) ) : ?>
               <div class="site-logo">
