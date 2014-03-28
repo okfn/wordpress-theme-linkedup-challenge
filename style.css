@@ -19,9 +19,43 @@ h1, h2, h3, h4, h5, h6 {
   font-weight:300;
 }
 
+body {
+  font-size:16px;
+  color:#666666;
+}
+
 strong,
 b {
   font-weight:700;
+}
+
+a,
+a:hover,
+a:focus,
+.left-nav-layout .main-nav .nav a  {
+  color: #055680;
+}
+
+.left-nav {
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-align:right;
+}
+.left-nav > .panel-heading {
+  background-color: #fff;
+  border:none;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #fff;
+}
+
+.page-header {
+  border-bottom: none;
+  margin: 40px 0 0 0;
+  padding-bottom: 0;
 }
 
 .page .video {
