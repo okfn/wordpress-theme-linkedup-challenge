@@ -6878,6 +6878,7 @@ body {
     margin-left: 0;
     margin-right: 0;
     max-width: 350px;
+    position: fixed;
   }
 }
 @media (max-width: 768px) {
