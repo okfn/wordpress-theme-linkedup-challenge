@@ -394,11 +394,13 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 		
 		//link to post name id on front page
 		$varpost = get_post($object->object_id);
-		if(is_front_page()){
-		  $attributes .= ! empty( $varpost->post_name )        ? ' href="#'   . esc_attr( $varpost->post_name        ) .'"' : '';
-		}else{
-			$attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
-		}
+    
+    if ( is_page_template('page-top-nav.php') or is_page_template('page-left-nav.php') ) {
+        $attributes .= ! empty( $varpost->post_name )        ? ' href="#'   . esc_attr( $varpost->post_name        ) .'"' : '';
+    } else {
+        $attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
+    }
+        
 
    	// if the item has children add these two attributes to the anchor tag
    	// if ( $args->has_children ) {
