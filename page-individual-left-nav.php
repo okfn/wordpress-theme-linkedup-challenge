@@ -93,12 +93,26 @@ Template Name: Left Nav
   
     <div id="inner-footer" class="clearfix">
       <div id="widget-footer" class="clearfix row">
-        <div class="col-sm-4">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="row">
+            <?php
+						if ( is_active_sidebar('footer2') ) { ?>
+            <div class="col-sm-6">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+              <?php endif; ?>
+            </div>
+            <div class="col-sm-6">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
+              <?php endif; ?>
+            </div>
+          </div>
+          <? } else { ?>
+            <div class="col-sm-12">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+              <?php endif; ?>
+            </div>
+          <? }; ?>
         </div>
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
-        <?php endif; ?>
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
-        <?php endif; ?>
       </div>
       
       <nav class="clearfix">

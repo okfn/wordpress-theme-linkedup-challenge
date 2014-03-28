@@ -105,14 +105,38 @@ Template Name: Home - Top Nav
       <footer class="site-footer" role="contentinfo">
 			
 				<div id="inner-footer" class="clearfix">
-            <div id="widget-footer" class="clearfix row">
+          <div id="widget-footer" class="clearfix row">
+
+            <?php
+            if ( is_active_sidebar('footer3') ) { ?>
+            <div class="col-sm-4">
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
               <?php endif; ?>
+            </div>
+            <div class="col-sm-4">
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
               <?php endif; ?>
+            </div>
+            <div class="col-sm-4">
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
               <?php endif; ?>
             </div>
+            <? } elseif ( is_active_sidebar('footer2') ) { ?>
+            <div class="col-sm-6">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+              <?php endif; ?>
+            </div>
+            <div class="col-sm-6">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
+              <?php endif; ?>
+            </div>
+            <? } else { ?>
+            <div class="col-sm-12">
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+              <?php endif; ?>
+            </div>
+            <? }; ?>
+          </div>
         
         <nav class="clearfix">
           <?php wp_bootstrap_footer_links(); // Adjust using Menus in Wordpress Admin ?>
