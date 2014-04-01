@@ -519,4 +519,6 @@ function wpbsone_theme_customizer( $wp_customize ) {
 ) ) );
 }
 add_action('customize_register', 'wpbsone_theme_customizer');
+
+show_admin_bar(false);
 ?>
