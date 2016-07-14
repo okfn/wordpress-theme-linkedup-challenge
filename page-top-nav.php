@@ -7,17 +7,17 @@ Template Name: Home - Top Nav
 <?php get_header(); ?>
   <div class="top-nav-layout">
     <header role="banner">
-				
+
 			<div class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
-          
+
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-            
+
 					<?php if ( get_theme_mod( 'wpbsone_logo' ) ) : ?>
             <div class="site-logo">
                 <a href='<?php echo home_url(); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'wpbsone_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
@@ -29,7 +29,7 @@ Template Name: Home - Top Nav
 
 					<div class="collapse navbar-collapse navbar-responsive-collapse main-nav pull-right">
 						<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-            
+
 
 						<!--
 						<?php //if(of_get_option('search_bar', '1')) {?>
@@ -44,12 +44,12 @@ Template Name: Home - Top Nav
 
 				</div> <!-- end .container -->
 			</div> <!-- end .navbar -->
-		
+
 		</header> <!-- end header -->
-		
-    
-    
-			<?php 
+
+
+
+			<?php
       // for each page in the main nav
       if (($locations = get_nav_menu_locations()) && $locations['main_nav'] ) {
           $menu = wp_get_nav_menu_object( $locations['main_nav'] );
@@ -63,47 +63,47 @@ Template Name: Home - Top Nav
       }
       while(have_posts() ) : the_post();
       ?>
-  
+
      <section class="single-page-section" id="<?php echo $post->post_name;?>">
-      
+
       <div class="container">
-        
+
         <div class="clearfix row">
-        
+
           <div class="col-sm-12 clearfix" role="main">
-            
+
             <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-              
-                
+
+
               <h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-              
-            
+
+
               <section class="post_content clearfix" itemprop="articleBody">
                 <?php the_content(); ?>
-            
+
               </section> <!-- end article section -->
-        
+
                 <?php //the_tags('<p class="tags"><span class="tags-title">' . __("Tags","wpbootstrap") . ':</span> ', ', ', '</p>'); ?>
-            
+
             </article> <!-- end article -->
-            
+
             <?php //comments_template('',true); ?>
-        
+
           </div> <!-- end #main -->
-      
+
           <?php //get_sidebar(); // sidebar 1 ?>
-      
+
         </div> <!-- end #content -->
-        
+
         </div> <!-- end #container -->
         </section>
 				<?php endwhile;?>
-     
+
    </div>
-   
+
    <div class="container">
       <footer class="site-footer" role="contentinfo">
-			
+
 				<div id="inner-footer" class="clearfix">
           <div id="widget-footer" class="clearfix row">
 
@@ -121,7 +121,7 @@ Template Name: Home - Top Nav
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
               <?php endif; ?>
             </div>
-            <? } elseif ( is_active_sidebar('footer2') ) { ?>
+            <?php } elseif ( is_active_sidebar('footer2') ) { ?>
             <div class="col-sm-6">
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
               <?php endif; ?>
@@ -130,22 +130,22 @@ Template Name: Home - Top Nav
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
               <?php endif; ?>
             </div>
-            <? } else { ?>
+            <?php } else { ?>
             <div class="col-sm-12">
               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
               <?php endif; ?>
             </div>
-            <? }; ?>
+            <?php } ?>
           </div>
-        
+
         <nav class="clearfix">
           <?php wp_bootstrap_footer_links(); // Adjust using Menus in Wordpress Admin ?>
         </nav>
-      
+
       </div> <!-- end #inner-footer -->
-      
+
     </footer> <!-- end footer -->
-  
+
   </div> <!-- end #container -->
-	
+
 <?php get_footer(); ?>
